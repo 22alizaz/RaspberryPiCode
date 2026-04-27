@@ -1,10 +1,13 @@
-﻿namespace RaspberryPiCode
+﻿using System.Device.Gpio;
+namespace RaspberryPiCode
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            GpioController controller = new GpioController(PinNumberingScheme.Board);
+            controller.OpenPin(40, PinMode.Output);
+            controller.Write(40, PinValue.High);
         }
     }
 }
